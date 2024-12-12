@@ -19,11 +19,11 @@ jobs:
         echo "${{ secrets.AZURE_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         echo "${{ secrets.AZURE_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
         chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H your_server_ip >> ~/.ssh/known_hosts
+        ssh-keyscan -H 13.84.184.169 >> ~/.ssh/known_hosts
 
     - name: Deploy to Azure
       run: |
-        ssh svc_mwc@your_server_ip << 'EOF'
+        ssh svc_mwc@13.84.184.169 << 'EOF'
         cd /path/to/your/project
         git pull origin main
         ./restart_script.sh
