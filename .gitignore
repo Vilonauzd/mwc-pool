@@ -1,0 +1,49 @@
+/stratum/target
+/stratum/Cargo.lock
+**/node_modules
+**/bak
+**/*.rs.bk
+**/*.log
+**/*.XXX
+
+**/.idea/
+**/__pycache__/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# pyenv
+.python-version
+
+# Environments
+**/venv/
+
+
+# Other git projects
+**/kubespray/
+
+# Tgz of existing blockchain and db
+*.tgz
+
+# ansible garbage
+ansible/site.retry
+ansible/access
+ansible/grin
+ansible/pool
+ansible/prereqs
+
+# Google Cloud Creds and Config
+**/gcloud/
+
+# secrets
+**/secrets/
+
+#/docker-compose/.env
+
+# Top-secret payment code
+#grin-py/api/payment_api.py
+#grin-py/grinlib/payments.py

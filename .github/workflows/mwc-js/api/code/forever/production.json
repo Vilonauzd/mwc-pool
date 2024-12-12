@@ -1,0 +1,7 @@
+{
+    "uid": "mwcpool",
+    "append": true,
+    "watch": false,
+    "script": "./dist/app.js",
+    "sourceDir": "./"   
+}
