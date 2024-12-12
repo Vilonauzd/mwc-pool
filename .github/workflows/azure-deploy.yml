@@ -7,24 +7,27 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04  # or ubuntu-22.04
+    runs-on: ubuntu-24.04  # Specify runner version
 
     steps:
+    # Step 1: Checkout the code
     - name: Checkout Code
       uses: actions/checkout@v3
 
+    # Step 2: Set up SSH
     - name: Set up SSH
       run: |
         mkdir -p ~/.ssh
         echo "${{ secrets.AZURE_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        echo "${{ secrets.AZURE_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H 13.84.184.169 >> ~/.ssh/known_hosts
 
+    # Step 3: Deploy to Azure server
     - name: Deploy to Azure
       run: |
-        ssh svc_mwc@13.84.184.169 << 'EOF'
-        cd /path/to/your/project
-        git pull origin main
-        ./restart_script.sh
+        ssh -i ~/.ssh/id_rsa svc_mwc@13.84.184.169 << 'EOF'
+        set -e  # Exit immediately if a command fails
+        cd /path/to/your/project  # Replace with the actual project directory
+        git pull origin main      # Pull latest changes from the repository
+        ./restart_script.sh       # Restart the application (custom script)
         EOF
