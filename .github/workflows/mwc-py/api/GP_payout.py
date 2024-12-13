@@ -31,7 +31,7 @@ class Pool_Payout:
         script = os.path.basename(__file__)
         self.poolname = "mwcpool"
         self.walletprefix = "grin"
-        self.mwURL = "https://api.mwcpool.com"
+        self.mwURL = "https://api.kloaki.com"
         self.walletflags = "--floonet"
         self.unsigned_slatefile = "payment_slate.json"
         self.signed_slatefile = "payment_slate.json.response"
