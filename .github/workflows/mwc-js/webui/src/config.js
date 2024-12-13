@@ -4,8 +4,8 @@ let URL = ''
 let URL_V2 = ''
 
 if (env === 'production') {
-  URL = 'https://api.mwcpool.com/'
-  URL_V2 = 'https://api.mwcpool.com/v2/'
+  URL = 'https://api.kloaki.com/'
+  URL_V2 = 'https://api.kloaki.com/v2/'
 } else if (env === 'development') {
   URL = 'http://localhost:13423/'
   URL_V2 = 'http://localhost:3009/'
